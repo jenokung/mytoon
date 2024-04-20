@@ -1,0 +1,25 @@
+
+# BEGIN WordPress
+# ทิศทาง (เส้น) ระหว่าง "จุดเริ่มต้น WordPress" และ "จุดสิ้นสุด WordPress" จะถูกสร้างขึ้นมา
+# โดยอัตโนมัติและควรจะถูกแก้ไขได้ด้วยตัวกรองของ WordPress เท่านั้น
+# การเปลี่ยนแปลงใดๆ ที่กระทำต่อทิศทางระหว่างเครื่องหมายจะถูกเขียนทับ
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+RewriteBase /mytoon/
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /mytoon/index.php [L]
+</IfModule>
+
+# END WordPress
+# BEGIN Simply Static
+# ทิศทาง (เส้น) ระหว่าง "จุดเริ่มต้น Simply Static" และ "จุดสิ้นสุด Simply Static" จะถูกสร้างขึ้นมา
+# โดยอัตโนมัติและควรจะถูกแก้ไขได้ด้วยตัวกรองของ WordPress เท่านั้น
+# การเปลี่ยนแปลงใดๆ ที่กระทำต่อทิศทางระหว่างเครื่องหมายจะถูกเขียนทับ
+<Files "D:\xampp\htdocs\mytoon/wp-content/uploads\simply-static\89c7ebbf5a8512ddd5870ce8eb53d891-debug.txt">
+require all denied
+require host localhost
+</Files>
+# END Simply Static
